@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Protocol"
+weight: 10
+---
 
-# Protocol {docsify-ignore}
+# Protocol
 ___
 
 

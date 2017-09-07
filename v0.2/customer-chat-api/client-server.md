@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Client => Server methods"
+weight: 40
+---
 
-# Methods: Client => Server {docsify-ignore}
+# Methods: Client => Server
 ___
 
 ### Login
@@ -35,48 +38,54 @@ ___
 ###### Success
 ```js
 {
-	"customer_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
-	"static_config_path": "s3.amazonaws.com/livechat/license/123/config.json",
-	"last_chats_summary": [
-		{
-			"id": '123',
-			"order": 343544565,
-			"users": [
-				{
-					"id": "75a90b82-e6a4-4ded-b3eb-cb531741ee0d",
-					"type": "agent",
-					"name": "Support Team",
-					"email": "john@gmail.com",
-					"avatar": "cdn.livechatinc.com/avatars/1.png",
-					"last_seen_timestamp": 1473433500
-				}
-			],
+    "customer_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+    "static_config_path": "s3.amazonaws.com/livechat/license/123/config.json",
+    "last_chats_summary": [
+        {
+            "id": '123',
+            "order": 343544565,
+            "users": [
+                {
+                    "id": "75a90b82-e6a4-4ded-b3eb-cb531741ee0d",
+                    "type": "agent",
+                    "name": "Support Team",
+                    "email": "john@gmail.com",
+                    "avatar": "cdn.livechatinc.com/avatars/1.png",
+                    "last_seen_timestamp": 1473433500
+                }
+            ],
+            "properties": {
+                // "Properties" object
+            },
+            "scopes": {
+                // "Scopes" object
+            },
                         "last_event_per_type": { // last event of each type in last thread
-			  "thread_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
-			  "events": [{
+              "thread_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+              "events": [{
                                // "Event > Message" object
                             }, {
                               // "Event > System message" object
                             },
                             ...
-			  ]
+              ]
                         },
-			"last_threads_summary": [
-				{
-					"id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
-					"order": 129846129847,
-					"events_count": 34
-				},
-				{
-					"id": "b0c22fdd-fb71-40b5-bfc6-a8a0bc3117f6",
-	  				"order": 129846129848,
-					"events_count": 12
-				}
-			],
-			"total_threads": 4
-		}
-	],
-	"total_chats": 14
+            "last_threads_summary": [
+                {
+                    "id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+                    "order": 129846129847,
+                    "events_count": 34
+                },
+                {
+                    "id": "b0c22fdd-fb71-40b5-bfc6-a8a0bc3117f6",
+                    "order": 129846129848,
+                    "events_count": 12
+                }
+            ],
+            "total_threads": 4
+        }
+    ],
+    "total_chats": 14
 }
 ```
 
@@ -103,31 +112,30 @@ ___
 ###### Success
 ```js
 {
-	"chats_summary": [
-		{
-			"id": '123',
-			"users": [
-				{
-					"id": "75a90b82-e6a4-4ded-b3eb-cb531741ee0d",
-					"type": "agent",
-					"name": "Support Team",
-					"email": "john@gmail.com",
-					"avatar": "cdn.livechatinc.com/avatars/1.png",
-					"last_seen_timestamp": 1473433500
-				}
-			],
-			"last_event": {
-				"thread_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
-				"event": {
-					// "Event" object
-				}
-			}
-		}
-	],
-	"pagination": {
-		"page": 2,
-		"total": 3
-	}
+    "chats_summary": [
+        {
+            "id": '123',
+            "users": [
+              // array of "User" objects
+            ],
+            "properties": {
+              // "Properties" object
+            },
+            "scopes": {
+              // "Scopes" object
+            },
+            "last_event": {
+                "thread_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+                "event": {
+                    // "Event" object
+                }
+            }
+        }
+    ],
+    "pagination": {
+        "page": 2,
+        "total": 3
+    }
 }
 }
 ```
@@ -156,11 +164,17 @@ ___
 {
   "chat": {
     "id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
-    "threads": [
-      // Thread object
-    ],
     "users": [
       // array of "User" objects
+    ],
+    "properties": {
+      // "Properties" object
+    },
+    "scopes": {
+      // "Scopes" object
+    },
+    "threads": [
+      // Thread object
     ]
   }
 }
@@ -182,8 +196,8 @@ ___
 {
   "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
   "pagination": {
-  	"offset": 0,
-	"limit": 100
+    "offset": 0,
+    "limit": 100
   }
 }
 ```
@@ -221,8 +235,7 @@ Note: customer details must be sent to server before the chat can be started (se
 | Action | Request object | Required | Notes |
 |--------|----------------|----------|---|
 | `start_chat` |
-| | `routing_scope.type` | Yes | Scope type (`license` or `team`) |
-| | `routing_scope.id` | No | Team ID (when `routing_scope.type` is `team`) |
+| | `chat.scopes` | No | Chat scope to set, defaults to all agents |
 | | `chat.events` | No | Initial chat events array |
 | | `chat.properties` | No | Initial chat properties |
 | | `chat.thread.properties` | No | Initial chat thread properties |
@@ -230,15 +243,14 @@ Note: customer details must be sent to server before the chat can be started (se
 ##### Example request payload
 ```js
 {
-  "routing_scope": {
-    "type": "license"
-  },
   "chat": {
+    "scopes": {
+      "groups": [1]
+    },
     "properties": {
       "source": {
         "type": "facebook"
-      },
-      ...
+      }
     }
     "thread": {
       "events": [{
@@ -270,6 +282,12 @@ Note: customer details must be sent to server before the chat can be started (se
     "users": [
       // array of "User" objects
     ],
+    "properties": {
+      // "Properties" object
+    },
+    "scopes": {
+      // "Scopes" object
+    },
     "thread": {
       // "Thread" object
     }
@@ -389,6 +407,42 @@ No payload.
 }
 ```
 
+### Update chat scopes
+
+| Action | Request object | Required | Notes |
+| -------|----------------|----------|-------|
+| `update_chat_scopes` ||||
+| | `chat_id` | Yes ||
+| | `add_scopes` | No | Chat scopes to add |
+| | `remove_scopes` | No | Chat scopes to remove |
+
+##### Example request payload
+```js
+{
+  "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+  "add_scopes": {
+    "groups": [1, 2]
+  },
+  "remove_scopes": {
+    "groups": [3]
+  }
+}
+```
+
+##### Example response payloads
+###### Success
+No payload.
+
+###### Error
+```js
+{
+  "error": {
+    "code": 123,
+    "message": "You are not allowed to close this chat."
+  }
+}
+```
+
 ### Update customer
 Updates customer details and properties.
 
@@ -456,7 +510,7 @@ Updates customer details and properties.
   "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
   "properties": {
     "rating": {
-      "score": 2,
+      "score": 1,
       "comment": "Very good, veeeery good"
     },
     ...
@@ -496,7 +550,7 @@ No payload.
   "thread_id": "EW2WQSA8",
   "properties": {
     "rating": {
-      "score": 2,
+      "score": 1,
       "comment": "Very good, veeeery good"
     },
     ...

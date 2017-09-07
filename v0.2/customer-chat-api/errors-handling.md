@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Errors handling"
+weight: 20
+---
 
-# Errors handling {docsify-ignore}
+# Errors handling
 ___
 ### Format
 Error payload has format:

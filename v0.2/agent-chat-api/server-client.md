@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: Server => Client methods
+weight: 30
+---
 
-# Methods: Server => Client {docsify-ignore}
+# Methods: Server => Client
 ___
 
 ### Overview
@@ -82,6 +85,27 @@ Server => Client methods are used for keeping application state up-to-date. They
   "chat_id": "85f3bfc9-06c1-434e-958b-2a5239b07de8",
   "event": {
     // "Event" object
+  }
+}
+```
+
+### Incoming broadcast
+
+| Action | Payload |
+|--------|------------------|
+| `incoming_broadcast` |
+|  | `author_id` |
+|  | `content` |
+
+##### Example response payload
+
+```js
+{
+  "author_id": "jack@gmail.com",
+  "content": {
+    "example": {
+      "nested": "json"
+    }
   }
 }
 ```
@@ -187,6 +211,28 @@ Server => Client methods are used for keeping application state up-to-date. They
   "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
   "thread_id": "b0c22fdd-fb71-40b5-bfc6-a8a0bc3117f6",
   "user_id": "75a90b82-e6a4-4ded-b3eb-cb531741ee0d" // optional
+}
+```
+
+### Chat scopes updated
+
+| Action | Payload |
+|--------|------------------|
+| `chat_scopes_updated` |
+|  | `chat_id` |
+|  | `scopes_added` |
+|  | `scopes_removed` |
+
+##### Example response payload
+```js
+{
+  "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+  "scopes_added": {
+    // "Scopes" object
+  },
+  "scopes_removed": {
+    // "Scopes" object
+  }
 }
 ```
 

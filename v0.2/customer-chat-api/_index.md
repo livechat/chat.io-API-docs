@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: Customer API
+weight: 40
+---
 
-# Introduction {docsify-ignore}
+# Introduction
 ___
 
 ### Connection
@@ -28,7 +31,7 @@ https://api.chat.io/customer/rtm/ws?license_id=123456789
 Client should implement server pinging or connection will be closed after about one minute of inactivity. If [control frame ping](https://tools.ietf.org/html/rfc6455#section-5.5.2) is unavailable (web browsers), client should use protocol message with action `ping`.
 
 ### Authentication
-Customer authentication is store in cookies. All cookies are secure and http-only .  
+Customer authentication is store in cookies. All cookies are secure and http-only.  
 
 | Cookie name | Type |
 |--------|------------------|

@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Server => Client methods"
+weight: 50
+---
 
-# Methods: Server => Client {docsify-ignore}
+# Methods: Server => Client
 ___
 
 ### Overview
@@ -23,10 +26,10 @@ Server => Client methods are used for keeping application state up-to-date. They
       // array of "User" objects
     ],
     "properties": {
-      "source": {
-        "type": "facebook"
-      },
-      ...
+      // "Properties" object
+    },
+    "scopes": {
+      // "Scopes" object
     },
     "thread": {
       // "Thread" object
@@ -149,6 +152,28 @@ Server => Client methods are used for keeping application state up-to-date. They
 }
 ```
 
+### Chat scopes updated
+
+| Action | Payload |
+|--------|------------------|
+| `chat_scopes_updated` |
+|  | `chat_id` |
+|  | `scopes_added` |
+|  | `scopes_removed` |
+
+##### Example response payload
+```js
+{
+  "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+  "scopes_added": {
+    // "Scopes" object
+  },
+  "scopes_removed": {
+    // "Scopes" object
+  }
+}
+```
+
 ### Customer updated
 
 | Action | Payload |
@@ -231,3 +256,20 @@ Server => Client methods are used for keeping application state up-to-date. They
   "timestamp": 123456789
 }
 ```
+
+## REST communication
+
+### Methods
+
+#### Send file
+
+| Property | Value |
+|---|----|
+| Endpoint | `/v3/file` |
+| Method | `POST` |
+| Headers | `Content-Type: multipart/form-data; boundary=<boundary>` |
+| Authorization | Done with cookies. Only existing customer can send a file. |
+| Params | `license_id` - int, required |
+| | `chat_id` - string, required |
+| | `file` - file, required, max 10MB |
+| | `custom_id` - string, optional |

@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Agent API"
+weight: 30
+---
 
-# Introduction {docsify-ignore}
+# Introduction
 ___
 ### Connection
 Connection endpoints:

@@ -1,6 +1,9 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Client => Server methods"
+weight: 20
+---
 
-# Methods: Client => Server {docsify-ignore}
+# Methods: Client => Server
 ___
 ### Login
 Returns current agent's initial state.
@@ -87,12 +90,16 @@ Returns current agent's initial state.
           }
         },
         ...
+      },
+      "scopes": {
+      	// "Scopes" object
       }
     }
   ]
 }
 ```
 * `properties` is optional
+* `scopes` is optional
 
 ##### Possible response errors
 | Type | Message |
@@ -229,7 +236,7 @@ Returns active threads that current agent has access to. If the agent is a super
             "unassigned": {
               "value": false
             }
-          },
+          }
 	  ...
         }
       },
@@ -241,9 +248,12 @@ Returns active threads that current agent has access to. If the agent is a super
           "unassigned": {
             "value": false
           }
-        },
+       }	
         ...
-      }
+      },
+      "scopes": {
+  	 // "Scopes" object
+      }      
     }
   ]
 }
@@ -287,7 +297,13 @@ Returns threads that current agent has access to for given chat.
         "thread_id": "b0c22fdd-fb71-40b5-bfc6-a8a0bc3117f6",
         "order": 129846129848
       }
-    ]
+    ],
+    "properites": {
+       // "Properites" object
+    },
+    "scopes": {
+       // "Scopes" object
+    }
   }
 }
 ```
@@ -356,8 +372,11 @@ Starts a chat.
       "properties": {
         "source": {
           "type": "facebook"
-        },
+        },	
         ...
+      },
+      "scopes": {
+         // "Scopes" object
       }
     }
   }
@@ -397,7 +416,7 @@ Adds an agent to chat. If the agent was already a supervisor in chat, he/she is 
 | -------|----------------|----------|---|
 | `join_chat` ||||
 | | `chat_id` | Yes | |
-| | `agent_ids` | No | If no agent is passed, current user will join the chat. |
+| | `agent_ids` | Yes | |
 
 ##### Example request payload
 ```js
@@ -496,6 +515,40 @@ No payload.
   }
 }
 ```
+
+### Send broadcast
+
+| Action | Request object | Required | Notes |
+| -------|----------------|----------|-------|
+| `send_broadcast` |||
+| | `scopes` | No | <scope_types> |
+| | `content` | Yes | JSON message to be broadcasted |
+
+* `<scope_types>` possible values:
+  * `agents` (`[]string` - array of agent's ids)
+  * `groups` (`[]string` - array of group's ids)
+
+##### Example request payload
+
+```js
+{
+  "scopes": {
+    "agents": ["john@gmail.com", "jane@gmail.com"],
+    "groups": [1, 2]
+  },
+  "content": {
+    "example": {
+      "nested": "json"
+    }
+  }
+}
+```
+
+##### Example response payloads
+
+###### Success
+
+No payload
 
 ### Mark event as seen
 
@@ -640,6 +693,43 @@ Closes the thread. Nobody will be able to send any messages to this thread anymo
 
 ##### Example response payloads
 ###### Success  
+No payload.
+
+###### Error
+```js
+{
+  "error": {
+    "code": 123,
+    "message": "You are not allowed to close this chat."
+  }
+}
+```
+
+### Update chat scopes
+
+| Action | Request object | Required | Notes |
+| -------|----------------|----------|-------|
+| `update_chat_scopes` ||||
+| | `chat_id` | Yes ||
+| | `add_scopes` | No | Chat scopes to add |
+| | `remove_scopes` | No | Chat scopes to remove |
+
+##### Example request payload
+```js
+{
+  "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
+  "add_scopes": {
+    "groups": [1, 2],
+    "agents": ["john@doe.com"]
+  },
+  "remove_scopes": {
+    "groups": [3]
+  }
+}
+```
+
+##### Example response payloads
+###### Success
 No payload.
 
 ###### Error

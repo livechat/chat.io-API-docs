@@ -1,12 +1,16 @@
-<p class="docs-warning">The chat.io API is currently in development and will change over time.</p>
+---
+title: "Success and error handling"
+weight: 20
+---
 
-# Succes and error handling {docsify-ignore}
+# Succes and error handling
 ___
 
 All responses will contain at least two properties:
-* `id` - the ID of the request. It lets the client match the response with the request.
-* `success` - boolean flag that tells if the request was successful or not.
-* `payload` - optional object containing additional response data.
+
+- `id` - the ID of the request. It lets the client match the response with the request.
+- `success` - boolean flag that tells if the request was successful or not.
+- `payload` - optional object containing additional response data.
 
 #### Success
 Success response can also contain additional objects, such as `chat` or `event`, nested in the `payload` object. Their format is described in Agent/Customer API documentation.
