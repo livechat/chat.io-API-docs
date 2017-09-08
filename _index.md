@@ -2,6 +2,9 @@
 title: "Platform API"
 ---
 
+# Platform API
+---
+
 Platform API consists of two APIs:
  - **Agent API** - for handling chats on behalf of agents
  - **Customer API** - for handling chats on behalf of customers
