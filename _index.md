@@ -1,7 +1,6 @@
-<!-- ---
-title: "API reference"
-weight: 30
---- -->
+---
+title: "Platform API"
+---
 
 Platform API consists of two APIs:
  - **Agent API** - for handling chats on behalf of agents
