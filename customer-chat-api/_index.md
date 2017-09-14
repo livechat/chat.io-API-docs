@@ -17,7 +17,7 @@ Connection endpoints:
 Params:
 
 | Param | Required | Type | Notes |
-|--|--|--|--|
+|---|---|---|---|
 | `license_id` | Yes | Integer | LiveChat account ID |
 
 Example:
