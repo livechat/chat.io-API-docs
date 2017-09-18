@@ -1,8 +1,7 @@
-<!-- ---
+---
 title: "Getting started"
 weight: 10
---- -->
-
+---
 
 # Introduction
 ___
