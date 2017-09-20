@@ -60,12 +60,6 @@ Server => Client methods are used for keeping application state up-to-date. They
         // array of "User > Agent" objects
       ],
       "removed_ids": ["75a90b82-e6a4-4ded-b3eb-cb531741ee0d"]
-    },
-    "supervisors": {
-      "added": [
-        // array of "User > Supervisor" objects
-      ],
-      "removed_ids": ["85f3bfc9-06c1-434e-958b-2a5239b07de8"]
     }
   }
 }
