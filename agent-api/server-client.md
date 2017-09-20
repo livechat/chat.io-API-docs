@@ -361,21 +361,3 @@ Server => Client methods are used for keeping application state up-to-date. They
   "timestamp": 123456789
 }
 ```
-
-## REST communication
-
-### Methods
-
-#### Send file
-
-| Property | Value |
-|---|----|
-| Endpoint | `/v3/file` |
-| Method | `POST` |
-| Headers | `Content-Type: multipart/form-data; boundary=<boundary>` |
-| | `Authorization: Bearer <access_token>` |
-| Authorization | Done with sso token in `Authorization` header. |
-| Params | `chat_id` - string, required |
-| | `file` - file, required, max 10MB |
-| | `recipients` - string, possible values `all` (default), `agents` |
-| | `custom_id` - string, optional |

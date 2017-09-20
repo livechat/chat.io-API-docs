@@ -605,3 +605,21 @@ No payload.
   }
 }
 ```
+
+
+## REST communication
+
+### Methods
+
+#### Send file
+
+| Property | Value |
+|---|----|
+| Endpoint | `/v3/file` |
+| Method | `POST` |
+| Headers | `Content-Type: multipart/form-data; boundary=<boundary>` |
+| Authorization | Done with cookies. Only existing customer can send a file. |
+| Params | `license_id` - int, required |
+| | `chat_id` - string, required |
+| | `file` - file, required, max 10MB |
+| | `custom_id` - string, optional |
