@@ -36,7 +36,7 @@ Depending on whether you are a Customer or an Agent, you have to use different m
 
 ### Chatting
 
-You can start a chat via the [start_chat](../../agent-api/client-server#start-chat) method both on the Customer and Agent side. If you are an agent you can also [join](../../agent-api/client-server#join-chat) a chat or [supervise](../../agent-api/client-server#supervise-chat) it. When you are in a chat you can send events to it via [send_event](../../agent-api/client-server#send-event) method.
+You can start a chat via the [start_chat](../../agent-api/client-server#start-chat) method both on the Customer and Agent side. If you are an agent you can also [join](../../agent-api/client-server#join-chat) a chat. When you are in a chat you can send events to it via [send_event](../../agent-api/client-server#send-event) method.
 
 Currently all new events and chats are sent to all agents within the license. In the future *scopes* will define which groups of users have access to chats/events and other types of data. (currently scopes serve another purpose and will be documented in this guide soon)
 
