@@ -102,20 +102,6 @@ Optional properties:
 ```
 `routing_status` will be returned only if agent is currently logged in.
 
-### User > Supervisor
-```js
-{
-  "id": "85f3bfc9-06c1-434e-958b-2a5239b07de8",
-  "type": "supervisor",
-  "name": "Peter Wilkinson",
-  "email": "john@gmail.com",
-  "present": true,
-  "last_seen_timestamp": 1473433500,
-  "avatar": "cdn.livechatinc.com/avatars/1.png",
-  "routing_status": "accepting_chats"
-}
-```
-
 ### User > My profile
 ```js
 {
