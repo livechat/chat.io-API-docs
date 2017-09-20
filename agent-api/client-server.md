@@ -109,7 +109,7 @@ Returns current agent's initial state.
 
 
 ### Get archives
-Returns active threads that current agent has access to. If the agent is a supervisor in some threads, those threads will be returned as well.
+Returns active threads that current agent has access to.
 
 | Action | Request object | Required | Type | Notes |
 |--------|----------------|----------|------|-------|
@@ -308,37 +308,6 @@ Returns threads that current agent has access to for given chat.
 }
 ```
 
-### Supervise chat
-Adds a supervisor to chat. The supervisor can only send messages to other agents. These messages are not visible to the customer.
-
-| Action | Request object | Required | Notes |
-| -------|----------------|----------|---|
-| `supervise_chat` ||||
-| | `chat_id` | Yes | |
-| | `agent_ids` | No | If no agent is passed, current user will be used instead. |
-
-##### Example request payload
-```js
-{
-  "chat_id": "a0c22fdd-fb71-40b5-bfc6-a8a0bc3117f5",
-  "agent_ids": ["75a90b82-e6a4-4ded-b3eb-cb531741ee0d"]
-}
-```
-
-##### Example response payloads
-###### Success
-No payload.
-
-###### Error
-```js
-{
-  "error": {
-    "code": 123,
-    "message": "You do not have permission to add a supervisor to this chat."
-  }
-}
-```
-
 ### Start chat
 Starts a chat.
 
@@ -410,7 +379,7 @@ Starts a chat.
 ```
 
 ### Join chat
-Adds an agent to chat. If the agent was already a supervisor in chat, he/she is changed to an agent.
+Adds an agent to chat.
 
 | Action | Request object | Required | Notes |
 | -------|----------------|----------|---|
