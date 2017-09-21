@@ -615,7 +615,7 @@ No payload.
 
 | Property | Value |
 |---|----|
-| Endpoint | `/v3/file` |
+| Endpoint | `/customer/file` |
 | Method | `POST` |
 | Headers | `Content-Type: multipart/form-data; boundary=<boundary>` |
 | Authorization | Done with cookies. Only existing customer can send a file. |
