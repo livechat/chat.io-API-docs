@@ -12,7 +12,7 @@ Events are portions of data which can be sent to a chat ([send_event](../../agen
 
  - [message](#message)
  - [annotation](#annotation)
- - [filled-form](#filled-form)
+ <!-- - [filled-form](#filled-form) -->
  - [system message](#system-message)
  - [file](#file)
  - [custom event](#custom-event)
@@ -80,7 +80,7 @@ Adds an annotation to the last thread. Keep in mind that sending an annotation c
 `annotation_type` - type of the annotation. This field cannot be empty and is customizable, you can have your own annotation types (i.e. we use "rating" type)
 
 
-### Filled form
+<!-- ### Filled form
 
 A filled form is an event containing some data from a form. Here's what it looks like:
 
@@ -101,7 +101,7 @@ A filled form is an event containing some data from a form. Here's what it looks
 }
 ```
 
-There are 5 different types of field from filled form, you can use one or more field types in a single filled form event.
+There are 4 different types of field from filled form, you can use one or more field types in a single filled form event.
 
 `text`:
 
@@ -127,70 +127,25 @@ There are 5 different types of field from filled form, you can use one or more f
   }
 ```
 
-`radio`:
+`title`:
 
 ```js
   {
-    "type": "radio",
-    "name": "purpose",
-    "label": "Chat purpose",
-    "required": true,
-    "options": [{
-      "label": "Support",
-      "value": "support",
-      "checked": true
-    },
-    {
-      "label": "Sale",
-      "value": "sale",
-      "checked": false
-    }],
+    "name": "Welcome to chat",
+    "type": "title",
+    "label": "main title",
   }
 ```
 
-`checkbox`:
-
-```js
-  {
-    "type": "checkbox",
-    "name": "industry",
-    "label": "Company industry",
-    "required": true,
-    "options": [{
-      "label": "automotive",
-      "value": "automotive",
-      "checked": true
-    }, {
-      "label": "IT",
-      "value": "it",
-      "checked": true
-    }],
-  }
-```
-
-`select`:
+`information`:
 
 ```js
 {
-  "type": "select",
-  "name": "country",
-  "label": "Country",
-  "required": true,
-  "options": [{
-    "label": "USA",
-    "value": "usa",
-    "checked": false
-  }, {
-    "label": "Poland",
-    "value": "pl",
-    "checked": true
-  }, {
-    "label": "Poland",
-    "value": "pl",
-    "checked": false
-  }]
+    "name": "some text to display",
+    "type": "information",
+    "label": "info",
 }
-```
+``` -->
 
 
 ### System message
