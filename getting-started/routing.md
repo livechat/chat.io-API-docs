@@ -10,7 +10,7 @@ Routing is an algorithm which defines how chats on the license are distributed b
 
 ### Introduction
 
-In chat.io product it is not possible for a customer to have multiple chats within a single license, the conversation with a license (company) is continous from customer perspective and it is not nessesary to split that into multiple chats. Agents are assigned to this chat automaticly, or manually depends on routing setting.
+ In chat.io product it's not possible for a customer to have multiple chats within a single license. The conversation within a license (i.e. a company) is continuous from the customer's perspective and it's not necessary to split it into multiple chats. Agents are assigned to this chat either automatically or manually depending on the routing settings.
 
 
 ### Automatic routing
@@ -27,7 +27,7 @@ In chat.io product it is not possible for a customer to have multiple chats with
 
 ### System messages
 
-While routing switch states (as on diagrams) router will send some system messages (see [Events](../events#system-message) section) to chat.
+While routing switches states (as shown in diagrams), the router will send some system messages (see [Events](../events#system-message) section) to the chat.
 
 | Message text | System message type |
 |--------------|---------------------|
@@ -35,8 +35,8 @@ While routing switch states (as on diagrams) router will send some system messag
 
 cases:
 
- - new chat and agent available (automatic routing)
- - agent left the chat and another agent available (automatic routing)
+ - new chat and an agent is available (automatic routing)
+ - agent left the chat and another agent is available (automatic routing)
  - agent got available for unassigned chat (automatic routing)
 
 | Message text | System message type |
