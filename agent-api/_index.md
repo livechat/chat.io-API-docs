@@ -11,8 +11,8 @@ Connection endpoints:
 
 | Transport | Endpoint |
 |--------|----------------|
-| `socket.io` | `https://api.chat.io/agent/rtm/sio` |
-| `websocket` | `wss://api.chat.io/agent/rtm/ws` |
+| `socket.io` | `https://api.chat.io/agent/<version>/rtm/sio` |
+| `websocket` | `wss://api.chat.io/agent/<version>/rtm/ws` |
 
 **Important!**
 

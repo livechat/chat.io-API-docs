@@ -11,8 +11,8 @@ Connection endpoints:
 
 | Transport | Endpoint |
 |--------|----------------|
-| `socket.io` | `https://api.chat.io/customer/rtm/sio` |
-| `websocket` | `wss://api.chat.io/customer/rtm/ws` |
+| `socket.io` | `https://api.chat.io/customer/<version>/rtm/sio` |
+| `websocket` | `wss://api.chat.io/customer/<version>/rtm/ws` |
 
 Params:
 
@@ -23,7 +23,7 @@ Params:
 Example:
 
 ```
-https://api.chat.io/customer/rtm/ws?license_id=123456789
+https://api.chat.io/customer/v0.2/rtm/ws?license_id=123456789
 ```
 
 **Important!**
