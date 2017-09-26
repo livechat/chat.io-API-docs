@@ -82,7 +82,11 @@ Adds an annotation to the last thread. Keep in mind that sending an annotation c
 
 ### Filled form
 
-A filled form is an event containing some data from a form. Here's what it looks like:
+A filled form is an event containing some data from a form. Let's take a look at a practical example. We have this form:
+
+![Filled Form](../images/filled_form.png "filled form example")
+
+and we want to send its data. You can use filled form event to achieve this (in this example we introduce all currently available field types):
 
 ```js
 {
@@ -98,33 +102,29 @@ A filled form is an event containing some data from a form. Here's what it looks
   "fields": [{
       "type": "text",
       "name": "name",
-      "label": "Your name",
+      "label": "Your name:",
       "required": true,
       "value": "John Doe"
     },
     {
       "type": "email",
       "name": "email",
-      "label": "Your email",
+      "label": "E-mail:",
       "required": true,
       "value": "john.doe@gmail.com"
     },
     {
-      "name": "Welcome to chat",
+      "name": "Chat window title",
       "type": "title",
-      "label": "main title",
+      "label": "Let's talk!",
     },
     {
-      "name": "some text to display",
+      "name": "Chat window form info",
       "type": "information",
-      "label": "info",
+      "label": "Before we start, we'd like to know a few details about you.",
     }]
 }
 ```
-
-As you can see there are 4 different types of field from filled form and you can use one or more field types in a single filled form event. Above example can be displayed as here:
-
-![Filled Form](../images/filled_form.png "filled form example")
 
 
 ### System message
