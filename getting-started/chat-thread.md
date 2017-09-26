@@ -57,4 +57,4 @@ The following rules apply:
  - chats are not continous, there can be empty (time) spaces between threads
  - if there is no active thread in a chat (e.g. the last active thread has been closed), sending event to that chat will start a new thread (the annotation event is an exception here, it will be added at the end of the last thread)
  - when a new chat is started (via [start_chat](../../agent-api/client-server#start-chat)), a new thread is created within that chat
- - the algorithm which decides how the chats are distributed between the agents is called routing and will be documented in this guide in the Routing section
+ - the algorithm which decides how the chats are distributed between the agents is called routing and is documented in the [Routing](../routing.md) section
